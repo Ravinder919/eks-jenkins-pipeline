@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                     dir('terraform') {
+                        sh "rm -rf .terraform .terraform.lock.hcl"
                         sh "terraform init -upgrade"
                         sh "terraform apply -auto-approve"
                     }
